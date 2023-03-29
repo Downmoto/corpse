@@ -1,0 +1,2 @@
+class AudioException(Exception):
+    pass

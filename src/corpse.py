@@ -1,8 +1,14 @@
+from audio.audio import Audio
+from pathlib import Path
 
+def main() -> int:
+    audio: Audio = Audio()
+    
+    file: Path = Path('./output.wav') 
+    
+    audio.play(file)
 
-
-def main():
-    pass
+    return 0
 
 
 
