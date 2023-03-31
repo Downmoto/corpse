@@ -1,18 +1,36 @@
-from audio.audio import Audio
-from pathlib import Path
+from config import Config
 
-def main() -> int:
-    audio: Audio = Audio()
+from textual.app import App
+
+import logging
+import pathlib
+import sys
+
+
+# establish default logging behaviour
+logging.basicConfig(
+    filename="corpseApp.log",
+    encoding='utf-8',
+    format='%(levelname)s :: %(asctime)s :: %(message)s',
+    filemode='w',
+    level=logging.DEBUG
+)
+
+
+class Corpse(App):
+    """
+    Corpse App
+    """
+    BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
+
+    def action_toggle_dark(self) -> None:
+        self.dark = not self.dark
+
+
     
-    file: Path = Path('./output.wav') 
-    
-    audio.play(file)
-
-    return 0
-
-
-
 
 
 if __name__ == '__main__':
-  main()
+    config = Config()
+    
+    print(config.app_data_dir)
