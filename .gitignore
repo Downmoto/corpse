@@ -4,5 +4,8 @@ __pycache__/
 
 # Other
 .vscode/
-
 *.wav
+
+# Logs
+logs/
+*log
