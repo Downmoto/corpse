@@ -1,19 +1,22 @@
+import sys
+sys.path.append('../')
+
 from textual.widgets import Static, Button, Input
 from textual.app import ComposeResult
 
-from widgets.TimeDisplay import TimeDisplay
+from TimeDisplay import TimeDisplay
 
-from audio import Recorder
+import audio
 
-import wave
 import logging
 import datetime
+import threading
 
 
 class Record(Static):
     """
     Recoding class holding widget logic for wav files
-    """
+    """      
 
     def on_click(self, event) -> None:
         logging.debug(event.x)
